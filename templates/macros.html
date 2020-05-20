@@ -5,10 +5,10 @@
         <h2><a class="has-text-{{ colors::style() }}" href="{{ get_url(path=post.path) | safe }}">{{ post.title }}</a></h2>
         {% if post.extra %}
         {% if post.extra.authors %}
-        <p class="has-text-grey"> {{ post.extra.authors | join(sep=", ") }}
+        <p class="has-text-grey"> {{ post.extra.authors | join(sep=", ") | markdown(inline=true) | safe  }}
         {% if post.extra.publication %}
         <br/>
-        {{ post.extra.publication }}, {{ post.extra.year }}
+        {{ post.extra.publication | markdown(inline=true) | safe  }}, {{ post.extra.year }}
         {% endif %}
         </p>
         <p>

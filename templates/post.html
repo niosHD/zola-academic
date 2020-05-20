@@ -57,7 +57,7 @@
                     {% if page.extra.abstract %}
                     <div>
                         <h3>Abstract</h3>
-                        {{ page.extra.abstract }}
+                        {{ page.extra.abstract | markdown | safe }}
                     </div>
                     {% endif %}
                     {% if page.extra.toc %}
