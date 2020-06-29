@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% block css %}
         <link rel="stylesheet" href="{{ get_url(path="/main.css") | safe }}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
@@ -12,6 +13,7 @@
                 background-color: {{ colors::background() }}
             }
         </style>
+        {% endblock css %}
         {% block extracss %}{% endblock extracss %}
         <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     </head>
