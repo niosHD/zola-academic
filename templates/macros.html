@@ -1,7 +1,7 @@
 {% import "colors.html" as colors %}
 {% macro post_header(post, thumbnail=false) %}
 <div class="columns is-desktop">
-    <div class="column is-desktop is-two-thirds">
+    <div class="column is-desktop">
         <h2><a class="has-text-{{ colors::style() }}" href="{{ get_url(path=post.path) | safe }}">{{ post.title }}</a></h2>
         {% if post.extra %}
         {% if post.extra.authors %}
@@ -18,12 +18,12 @@
         {% if post.extra %}
         {% if post.extra.links %}
         {% for link in post.extra.links %}
-        {% if link.link is starting_with("http://") or link.link is starting_with("https://") %}
-        <a class="button is-outlined is-small is-{{ colors::style() }}" href="{{ link.link | safe }}">
+            {% if link.link is starting_with("http://") or link.link is starting_with("https://") %}
+            <a class="button is-outlined is-small is-{{ colors::style() }}" href="{{ link.link | safe }}">
             {% else %}
-            <a class="button is-outlined is-small is-{{ colors::style() }}" href="{{ get_url(path=link.link) | safe }}">
-                {% endif %}
-                {{ link.name }}
+            <a class="button is-outlined is-small is-{{ colors::style() }}" href="{{ get_url(path=post.path ~ link.link) | safe }}">
+            {% endif %}
+            {{ link.name }}
             </a>
             {% endfor %}
         </p>
